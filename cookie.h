@@ -8,7 +8,7 @@ class Cookie{
         int value;
         sf::CircleShape* body;
         std::string cookie_type;
-        sf::Color* cookie_colour;
+        sf::Color cookie_colour;
         float* spawn_rate;
         bool collected;
         
@@ -20,19 +20,29 @@ class Cookie{
             body->setOrigin(25,25);
             //this->cookie_type = cookie_type;
             collected = true;
+            value = 1;
 
             srand(time(0));
         }
-        // Cookie(std::string type, int value){
-        //     cookie = new sf::CircleShape(50);
-        //     if(type.compare("choc chip")){
-        //         *cookie_colour = sf::Color::Yellow;
-        //     }
-        // }
+        
+        Cookie(std::string type) : Cookie(){
+            if(type.compare("choc chip")){
+                value = 1;
+                body->setFillColor(sf::Color(230, 189, 115, 255));
+            }
+            else if(type.compare("chocolate")){
+                value = 2;
+                body->setFillColor(sf::Color::Red);
+            }
+            else if(type.compare("macadamia")){
+                value = 5;
+                body->setFillColor(sf::Color::Blue);
+            }
+        }
 
         void draw(sf::RenderWindow* win){
             if(!collected){
-                body->move(0,0.15);
+                body->move(0,6);
                 win->draw(*body);
                 if(body->getPosition().y > 1100) {
                     spawn(win->getSize().x, false);
@@ -40,6 +50,8 @@ class Cookie{
             }
         }
 
+        //randomly sets the position of cookies when spawned/collected
+        //if its the first spawn, place randomly along y, otherwise spawn at y = -25
         void spawn(int x, bool initial){
             if(!initial){
                 body->setPosition(rand() % x*2/5 + 100, -25);
@@ -68,6 +80,5 @@ class Cookie{
 
         ~Cookie(){
             delete body;
-            delete cookie_colour;
         }
 };
