@@ -2,9 +2,9 @@
 #include <string>
 #include <iostream>
 #include <random>
+#include <vector>
 #include "cookie.h"
 #include "Building.h"
-#include <vector>
 #include "cookie.h"
 #include "bowl.h"
 //#include "upgrade_spawn_rate.h" only include once store class is done, also write ifndef for headers
