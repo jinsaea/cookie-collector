@@ -9,6 +9,7 @@ class Cookie{
         sf::CircleShape* body;
         std::string cookie_type;
         sf::Color cookie_colour;
+
         float* spawn_rate;
         bool collected;
         
@@ -20,6 +21,18 @@ class Cookie{
             body->setOrigin(25,25);
             //this->cookie_type = cookie_type;
             collected = true;
+            srand(time(0));
+        }
+        // Cookie(std::string type, int value){
+        //     cookie = new sf::CircleShape(50);
+        //     if(type.compare("choc chip")){
+        //         *cookie_colour = sf::Color::Yellow;
+        //     }
+        // }
+
+        void draw(sf::RenderWindow* win){
+            if(!collected){
+                body->move(0,0.15);
             value = 1;
 
             srand(time(0));

@@ -8,17 +8,15 @@ class Bowl
         int current_cookies;
         int total_cps;
         int total_cookies;
-
         // 0: choc chip, 1: chocolate, 2: macadamia
         int* amount;
-
     public:
         Bowl(){
             body = new sf::RectangleShape(sf::Vector2f(150, 30));
             body->setFillColor(sf::Color(105, 40, 15, 255));
             body->setPosition(500, 1000);
             body->setOrigin(75,15);
-
+            
             /*value = new int[3];
             for (int i = 0; i < 2; i++)
             {
@@ -46,12 +44,17 @@ class Bowl
             current_cookies += value;
         }
 
+        void set_current_cookies(int new_current){
+            current_cookies = new_current;
+        }
+
         void draw(sf::RenderWindow* win){
             win->draw(*body);       
         }
 
         ~Bowl(){
             delete body;
+
             //delete[] value;
             delete[] amount;
         };

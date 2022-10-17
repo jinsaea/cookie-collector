@@ -19,8 +19,7 @@ class cookie_collector{
         
         cookie_collector(){
             win = new RenderWindow(VideoMode(1920,1080), 
-            "Cookie Collector: The best game ever by Jordan and Sebastian",
-            Style::Fullscreen);
+            "Cookie Collector: The best game ever by Jordan and Sebastian");
             //Store store;
             store.create_button(60, sf::Color::Yellow);
             //store.draw_button(win);
